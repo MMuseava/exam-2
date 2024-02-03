@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import UserForm from "../userForm/UserForm";
-import UserTable from "../userTable/UserTable";
+import UserForm from "../../components/userForm/UserForm";
+import UserTable from "../../components/userTable/UserTable";
 
 const url = "https://jsonplaceholder.typicode.com/users";
 
