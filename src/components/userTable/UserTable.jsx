@@ -1,17 +1,10 @@
 import React from "react";
+import { calcAge, getBirthMonth, countryName } from "../../utilities/help";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaRegEdit } from "react-icons/fa";
 import "./userTable.style.css";
 
 const UserTable = ({ userList, onDeleteHandler, onEditHandler }) => {
-	const calcAge = (birthYear) => {
-		if (!birthYear) return 0;
-		const currentYear = new Date().getFullYear();
-		const year = new Date(birthYear).getFullYear();
-		console.log(currentYear);
-		console.log(birthYear);
-		return currentYear - year;
-	};
 	return (
 		<div>
 			<h1>Table</h1>
@@ -23,6 +16,7 @@ const UserTable = ({ userList, onDeleteHandler, onEditHandler }) => {
 						<th>Email</th>
 						<th>Country</th>
 						<th>Age</th>
+						<th>Birth Month</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -32,8 +26,9 @@ const UserTable = ({ userList, onDeleteHandler, onEditHandler }) => {
 							<td>{user.name}</td>
 							<td>{user.phone}</td>
 							<td>{user.email}</td>
-							<td>{user.country}</td>
+							<td>{countryName(user)}</td>
 							<td>{calcAge(user.birthYear)}</td>
+							<td>{getBirthMonth(user.birthYear)}</td>
 
 							<td>
 								<button onClick={() => onEditHandler(user.id)}>

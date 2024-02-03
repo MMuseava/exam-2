@@ -14,6 +14,7 @@ const UserForm = ({ addUserHandler }) => {
 
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
+
 		addUserHandler(formData);
 		setFormData(initialValues);
 		console.log("formData", formData);
